@@ -55,19 +55,12 @@ namespace Aplication.Posts
                 }
                 
 
-                var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == request.UserId);
-                if (user is null)
-                {
-                    throw new Exception("User doesnt exist");
-
-                }
-                
+               
                 var post = new Post()
                 {
                     Creationdate = request.CreationDate,
                     Image = request.Image,
-                    Title = request.Title,
-                    User = user
+                    Title = request.Title
                 };
                 
                 //add os dados na base de dados.

@@ -31,7 +31,7 @@ public class ListPosts
                 Creationdate = post.Creationdate,
                 Image = post.Image,
                 Title = post.Title,
-                UserName = post.User.Username
+               
             }).ToList();
 
             return postListDto;

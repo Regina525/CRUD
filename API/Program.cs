@@ -1,11 +1,15 @@
+using Aplication.Helpers.MappingProfiles;
 using Aplication.Posts;
+using Doiman;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
+//Configuracao do Identity
+builder.Services.AddIdentity<User,IdentityRole>().AddDefaultTokenProviders().AddEntityFrameworkStores<DataContext>();
+builder.Services.AddAutoMapper(typeof(MappingProfiles));
 //usamos para definir servico de DB
 builder.Services.AddDbContext<DataContext>(optionsAction =>
 {
